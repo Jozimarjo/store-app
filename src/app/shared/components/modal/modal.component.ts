@@ -42,6 +42,9 @@ export class ModalComponent implements OnInit,OnDestroy {
         if(value){
           this.buildForm(value)
           this.edit=value;
+        }else{
+          this.buildForm()
+          this.edit = null
         }
         this.open()
       })

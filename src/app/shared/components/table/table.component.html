@@ -2,7 +2,7 @@
   <app-search (searchText)="filterTable($event)"></app-search>
   <table>
     <tbody>
-      <tr *ngFor="let item of itemList">
+      <tr *ngFor="let item of itemList" (click)="editItem(item)">
         <td class="w-50" >{{item.name}}</td>
         <td >{{item.price | currency: 'BRL': 'symbol'}}</td>
         <td
