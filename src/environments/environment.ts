@@ -8,6 +8,4 @@ export const environment = {
     messagingSenderId: "276429703686",
     appId: "1:276429703686:web:d543f4a3afc295882dd187"
   },
-  test: process.env["TEST"]
-
 };

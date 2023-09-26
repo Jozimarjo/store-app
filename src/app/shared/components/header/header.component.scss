@@ -15,12 +15,6 @@
   align-items: center;
 }
 
-.header-modal{
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 160%;
-}
 
 .header-content-text {
   font-size: 25.585px;
@@ -28,97 +22,4 @@
   font-weight: 700;
   line-height: 160%;
   color:#E1E1E6;
-}
-
-.modal-content{
-  background-color: #00000000;
-}
-
-.dialog-modal{
-  max-width: 33.438rem;
-  border-radius: 6px;
-  padding: 2.5rem 3rem;
-  background-color: #201F24;
-
-  form{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    input[type="text"],
-    input[type="number"],
-    input[type="date"] {
-      outline: none;
-      border-radius: 6px;
-      border: 0;
-      background-color: #121214;
-      color: #7C7C8A;
-      padding: 1rem;
-      &::placeholder{
-        color: #7C7C8A;
-      }
-
-    }
-
-    select{
-      background-color: #121214;
-      padding: 1rem;
-      outline: none;
-      border: 0;
-      color: #7C7C8A;
-      cursor: pointer;
-
-    }
-    button[type="submit"]{
-      height: 58px;
-      height: 58px;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 160%;
-    }
-  }
-  .buttons-container{
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    .action-button{
-      display: flex;
-      padding: 1rem 1.25rem;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      flex: 1;
-      background-color: #29292E;
-      border: 0;
-      border-radius: 6px;
-      color: #C4C4CC;
-      outline: none;
-
-      &.ACTIVE{
-        background-color: #005232;
-      }
-
-    }
-  }
-
-  .form-switch .form-check-input{
-    width: 3em;
-    height: 1.25em;
-  }
-
-  .form-check-input:checked {
-    background-color: #121214;
-    border: #121214;
-  }
-
-  .input-group-text{
-      background-color: #29292E;
-      border: 0;
-      color: #7C7C8A;
-  }
-  .date-input-container{
-
-  }
 }
