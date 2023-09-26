@@ -10,10 +10,6 @@ export class HomeService {
 
   constructor(private db : AngularFireDatabase) { }
 
-  // getAll(): Observable<Item[]> {
-  //   return this.db.list<Item>('products').valueChanges()
-  // }
-
   getAll(): Observable<Item[]> {
     return this.db.list<Item>('products')
     .snapshotChanges()

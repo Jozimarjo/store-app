@@ -2,7 +2,6 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Item, TypePaidOut, TypeSold } from 'src/app/features/interfaces/item';
 import { ModalService } from '../modal.service';
-// import * as bootstrap from 'bootstrap';
 declare var window: any;
 
 @Component({

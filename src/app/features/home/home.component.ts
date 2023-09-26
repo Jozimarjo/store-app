@@ -31,7 +31,11 @@ constructor(private homeService: HomeService, private app: AppService){}
   getAll(){
 
     this.homeService.getAll().subscribe(values=>{
+<<<<<<< HEAD
       this.oldList=[...values];
+=======
+      console.log(values)
+>>>>>>> d144e76c27f9700c275d5f56483b451488be5797
       this.itemList=values.filter(v=>v.sold);
 
       this.totalPaid = this.itemList
