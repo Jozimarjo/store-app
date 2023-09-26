@@ -7,7 +7,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
