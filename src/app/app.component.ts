@@ -1,6 +1,5 @@
 import { Component,  OnInit } from '@angular/core';
-import { TestService } from './test.service';
-import { environment } from 'src/environments/environment';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,12 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements  OnInit {
   title = 'test';
-  constructor(private service: TestService){}
+  alertState = false
+  constructor(private service: AppService){}
   ngOnInit(): void {
-    console.log(environment)
+    this.service.alert.subscribe(value=>{
+      this.alertState = value
+    })
   }
 
 }

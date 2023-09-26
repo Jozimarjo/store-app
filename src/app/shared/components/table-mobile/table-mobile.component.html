@@ -1,7 +1,7 @@
 <div class="table-container">
   <app-search [isMob]="true" (searchText)="filterTable($event)" ></app-search>
   <div class="table-card mb-2" *ngFor="let item of itemList">
-    <div class="table-card-header">
+    <div class="table-card-header" (click)="editItem(item)">
       <span class="table-card-content-title"> {{item.name}} </span>
       <span
       [class.GREEN]="getTypeValue(item, 'GREEN')"

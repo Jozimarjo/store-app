@@ -1,4 +1,3 @@
-
 declare const apiKey: string;
 declare const authDomain: string;
 declare const projectId: string;
@@ -15,6 +14,5 @@ export const environment = {
     storageBucket: storageBucket,
     messagingSenderId: messagingSenderId,
     appId: appId
-  }
-
+  },
 };

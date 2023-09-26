@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
     const data:Item[] = [
       {
         name: 'Microondas Penesonic',
-        date: new Date().toLocaleString(),
+        date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
         price:'340.00',
         type: TypeSold.A_VISTA,
@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
       },
       {
         name: 'Fogão Eletrolux',
-        date: new Date().toLocaleString(),
+        date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
         price:'1400.00',
         type: TypeSold.A_VISTA,
@@ -39,7 +39,7 @@ export class ProductComponent implements OnInit {
       },
       {
         name: 'Air fryer philips',
-        date: new Date().toLocaleString(),
+        date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
         price:'250.00',
         type: TypeSold.A_VISTA,
@@ -60,47 +60,35 @@ export class ProductComponent implements OnInit {
         name: 'Maquina De Lavar Consul 11L',
         price: '1300.00',
         sold: true,
-        date: new Date().toLocaleString(),
+        date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
         type: TypeSold.A_VISTA,
         customer: 'Mikaelly'
       },
-      {
-        name: 'Maquina De Lavar Consul 11L',
-        price: '1300.00',
-        sold: true,
-        date: new Date().toLocaleString(),
-        paidOut: TypePaidOut.NAO_PAGO,
-        type: TypeSold.A_VISTA,
-        customer: 'Mikaelly'
-      },
+
       {
         name: 'Ferro black decker',
         price: '70.00',
         sold: true,
-        date: new Date().toLocaleString(),
+        date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
         type: TypeSold.A_VISTA,
         customer: 'Tia Ruth'
       },
-      {
-        name: 'Ferro black decker',
-        price: '70.00',
-        sold: true,
-        date: new Date().toLocaleString(),
-        paidOut: TypePaidOut.NAO_PAGO,
-        type: TypeSold.A_VISTA,
-        customer: 'Tia Ruth'
-      },
+
   ]
-  data.forEach(v=>{
-  })
-  }
+  // data.forEach(v=>{
+  //   this.save(v)
+
+  // })
+
+
+}
 
   save(value?: Item){
     // const data:Item= this.form.value;
     if(value  )
-    this.service.insert(value);
+    this.service.insert(value).subscribe(v=>console.log(v));
     this.form.reset()
   }
 }

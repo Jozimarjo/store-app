@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 import { Item, TypePaidOut } from '../interfaces/item';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,12 @@ import { Item, TypePaidOut } from '../interfaces/item';
 })
 export class HomeComponent implements OnInit {
   itemList:Item[] =[]
+  oldList:Item[] =[]
   isMob=false
   totalPaid!: number;
   unPaid!: number;
   total!: number;
-constructor(private homeService: HomeService){}
+constructor(private homeService: HomeService, private app: AppService){}
   ngOnInit(): void {
     this.tamanhoDaTela()
     this.getAll()
@@ -29,6 +31,7 @@ constructor(private homeService: HomeService){}
   getAll(){
 
     this.homeService.getAll().subscribe(values=>{
+      this.oldList=[...values];
       this.itemList=values.filter(v=>v.sold);
 
       this.totalPaid = this.itemList

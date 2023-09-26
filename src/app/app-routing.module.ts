@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path:'cart',
     loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
-  }
+  },
 ];
 
 @NgModule({

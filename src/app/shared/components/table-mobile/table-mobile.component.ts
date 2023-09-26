@@ -8,4 +8,6 @@ import { TableConfig } from 'src/app/features/interfaces/models/TableConfig';
 })
 export class TableMobileComponent extends TableConfig {
 
+
+
 }

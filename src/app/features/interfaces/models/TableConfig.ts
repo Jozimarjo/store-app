@@ -1,3 +1,4 @@
+import { ModalService } from './../../../shared/components/modal.service';
 import { Component, HostListener, Input } from "@angular/core";
 import { Item, TypePaidOut, typeValues } from "../item";
 type ItemWithStringType = Item & { typeValue?: string };
@@ -16,7 +17,7 @@ export class TableConfig {
   _itens: Item[]=[];
   itemList: ItemWithStringType[] = []
   oldList: ItemWithStringType[] = []
-
+  constructor(private modalService: ModalService){}
   @Input()
   set itens(value: Item[]){
     if(value){
@@ -54,5 +55,8 @@ export class TableConfig {
       return result;
     })
 
+  }
+  editItem(item: Item){
+    this.modalService.next(item)
   }
 }

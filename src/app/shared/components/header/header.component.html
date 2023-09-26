@@ -1,12 +1,12 @@
 <header class="header d-flex align-items-center justify-content-between ">
   <div class="header-content">
     <span class="header-content-text">Celly Shop</span>
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> Novo produto</button>
+    <button type="button" class="btn btn-success" (click)="openModal()"> Novo produto</button>
   </div>
 </header>
-
+<app-modal [itens]="itens"></app-modal>
 <!-- Modal -->
-<div class="modal"
+<!-- <div class="modal"
   aria-hidden="true"
   tabindex="-1"
   id="exampleModal" #dialog >
@@ -16,6 +16,7 @@
 
       <div class="header-modal">
         <span>Nova Transacao</span>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form [formGroup]="form" (ngSubmit)="save()" class="content-modal">
         <h2>Produto</h2>
@@ -33,8 +34,9 @@
             <input name="check" formControlName="sold" [value]="!this.form.value.sold" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
           </div>
         </div>
+      <ng-container *ngIf="this.form.value.sold">
 
-        <div class="buttons-container">
+        <div class="buttons-container" >
 
           <button (click)="select('A_VISTA')" [class.ACTIVE]="selected==='A_VISTA'"
             class="action-button">
@@ -52,17 +54,25 @@
           </button>
         </div>
         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="paidOut" name="paidOut" id="inlineRadio2" value="NAO_PAGO">
+          <label class="form-check-label" for="inlineRadio2">Não Pago</label>
+        </div>
+        <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" formControlName="paidOut" name="paidOut" id="inlineRadio1" value="PAGO">
           <label class="form-check-label" for="inlineRadio1">Pago</label>
         </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="paidOut" name="paidOut" id="inlineRadio3" value="PARCIAL">
+          <label class="form-check-label" for="inlineRadio3">Parcial</label>
+        </div>
         <input type="date" formControlName="date" placeholder="Data da venda"  id="validationServerUsername">
-        <input type="number" formControlName="valuePaid" placeholder="Valor pago">
+        <input *ngIf="this.form.value.paidOut==='PARCIAL'" type="number" formControlName="valuePaid" placeholder="Valor pago">
         <input type="text" formControlName="customer" placeholder="Comprador">
-
-        <button type="submit" class="btn btn-success" > Cadastrar</button>
+      </ng-container>
+        <button [disabled]="this.form.invalid" type="submit" class="btn btn-success" > Cadastrar</button>
       </form>
 
     </div>
   </div>
 </div>
-
+ -->
