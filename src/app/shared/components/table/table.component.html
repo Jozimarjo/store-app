@@ -1,0 +1,19 @@
+<div class="table-container">
+  <app-search (searchText)="filterTable($event)"></app-search>
+  <table>
+    <tbody>
+      <tr *ngFor="let item of itemList">
+        <td class="w-50" >{{item.name}}</td>
+        <td >{{item.price | currency: 'BRL': 'symbol'}}</td>
+        <td
+        [class.GREEN]="getTypeValue(item, 'GREEN')"
+        [class.RED]="getTypeValue(item, 'RED')"
+        [class.YELLOW]="getTypeValue(item, 'YELLOW')"
+        >
+            {{item.typeValue }}
+        </td>
+        <td *ngIf="!isMob">{{item.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

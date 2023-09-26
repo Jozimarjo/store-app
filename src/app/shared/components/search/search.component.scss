@@ -1,0 +1,16 @@
+.table-container-search{
+  display: flex;
+  padding: 16px 0;
+  gap: 0.75rem;
+  input{
+    width: calc(100% - 1rem);
+    background-color: #121214;
+    border: 0;
+    border-radius: 6px;
+    color: #7C7C8A ;
+    padding: 1rem;
+  }
+  button{
+    // flex: 1;
+  }
+}

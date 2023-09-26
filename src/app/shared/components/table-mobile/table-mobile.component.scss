@@ -1,0 +1,64 @@
+.table-container{
+  width: 100%;
+  max-width: 1120px;
+  margin: 4rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-card{
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 12px;
+  align-self: stretch;
+  background-color: #29292E;
+  border-radius: 6px;
+
+}
+.table-card-header{
+  display: flex;
+  flex-direction: column;
+}
+.table-card-content{
+  display: flex;
+  justify-content: space-between;
+}
+.table-card-content-value{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+
+  &.GREEN {
+    color: #00B37E;
+  }
+
+  &.YELLOW {
+    color: #e0f75a;
+  }
+
+  &.RED{
+    color: #F75A68 !important;
+  }
+}
+.table-card-content-title{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  color: #C4C4CC;
+}
+.table-card-content-text-pay{
+  font-size: 16px;
+  color: #7C7C8A;
+}
+.table-card-content-text-calendar{
+  font-size: 16px;
+  color: #7C7C8A;
+}
+@media only screen and (max-width: 456px) {
+  /* Seus estilos para telas menores que 457px vão aqui */
+
+}

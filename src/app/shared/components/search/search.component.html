@@ -1,0 +1,11 @@
+<form class="table-container-search">
+    <input type="text" name="searchName" [(ngModel)]="serchValue">
+  <!-- <div style="background-color: blue;flex:1;">
+    teste2
+  </div> -->
+  <button type="submit" (click)="filterText(serchValue)" class="btn btn-outline-success d-flex align-items-center">
+    <span class="material-symbols-outlined"> search </span>
+    <span *ngIf="!isMob">Buscar</span>
+  </button>
+
+</form>

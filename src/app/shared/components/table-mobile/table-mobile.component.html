@@ -1,0 +1,27 @@
+<div class="table-container">
+  <app-search [isMob]="true" (searchText)="filterTable($event)" ></app-search>
+  <div class="table-card mb-2" *ngFor="let item of itemList">
+    <div class="table-card-header">
+      <span class="table-card-content-title"> {{item.name}} </span>
+      <span
+      [class.GREEN]="getTypeValue(item, 'GREEN')"
+      [class.RED]="getTypeValue(item, 'RED')"
+      [class.YELLOW]="getTypeValue(item, 'YELLOW')"
+      class="table-card-content-value"> {{item.price | currency: 'BRL': 'symbol'}} </span>
+    </div>
+    <div class="table-card-content">
+      <span class="d-flex table-card-content-text-pay">
+        <span class="material-symbols-outlined">
+          label
+        </span>
+        {{item.typeValue }}
+      </span>
+      <span class="d-flex table-card-content-text-calendar">
+        <span class="material-symbols-outlined mx-1">
+          calendar_today
+        </span>
+        {{item.date }}
+      </span>
+    </div>
+  </div>
+</div>

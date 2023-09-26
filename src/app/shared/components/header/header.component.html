@@ -1,0 +1,68 @@
+<header class="header d-flex align-items-center justify-content-between ">
+  <div class="header-content">
+    <span class="header-content-text">Celly Shop</span>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> Novo produto</button>
+  </div>
+</header>
+
+<!-- Modal -->
+<div class="modal"
+  aria-hidden="true"
+  tabindex="-1"
+  id="exampleModal" #dialog >
+
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="dialog-modal modal-content">
+
+      <div class="header-modal">
+        <span>Nova Transacao</span>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="save()" class="content-modal">
+        <h2>Produto</h2>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Selecione o Produto</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <input type="text" formControlName="name" placeholder="Nome do Produto">
+        <input type="number" formControlName="price" placeholder="Preço">
+        <div class="d-flex align-items-center justify-content-between">
+          <h2>Transação</h2>
+          <div class="form-check form-switch">
+            <input name="check" formControlName="sold" [value]="!this.form.value.sold" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+          </div>
+        </div>
+
+        <div class="buttons-container">
+
+          <button (click)="select('A_VISTA')" [class.ACTIVE]="selected==='A_VISTA'"
+            class="action-button">
+            <span class="material-symbols-outlined"> payments </span>
+            <span>A Vista</span>
+          </button>
+
+          <button (click)="select('PARCELADO')"[class.ACTIVE]="selected==='PARCELADO'"
+            class="action-button">
+            <span (click)="select('PARCELADO')"
+                class="material-symbols-outlined">
+                credit_card
+            </span>
+            <span>Parcelado</span>
+          </button>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="paidOut" name="paidOut" id="inlineRadio1" value="PAGO">
+          <label class="form-check-label" for="inlineRadio1">Pago</label>
+        </div>
+        <input type="date" formControlName="date" placeholder="Data da venda"  id="validationServerUsername">
+        <input type="number" formControlName="valuePaid" placeholder="Valor pago">
+        <input type="text" formControlName="customer" placeholder="Comprador">
+
+        <button type="submit" class="btn btn-success" > Cadastrar</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+

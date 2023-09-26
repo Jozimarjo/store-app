@@ -1,0 +1,23 @@
+.header{
+  height: 13.313rem;
+  flex: 1;
+  padding: 2.5rem 0 7.5rem;
+  background-color: #121214;
+}
+.header-content{
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-content-text {
+  font-size: 25.585px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+  color:#E1E1E6;
+}

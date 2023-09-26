@@ -1,0 +1,36 @@
+<div class="cards-container">
+
+  <div class="cards-container-card">
+    <header class="cards-container-card-header">
+      <span>Pago</span>
+      <span
+      [style.color]="'#00b37e'"
+      [style.fontSize.px]="32"
+      class="material-symbols-outlined"> arrow_circle_up </span>
+    </header>
+    <strong>{{totalPaid  | currency: 'BRL': 'symbol'}}</strong>
+  </div>
+  <div class="cards-container-card">
+
+    <header class="cards-container-card-header">
+      <span>A pagar</span>
+      <span
+      [style.color]="'#F75A68'"
+      [style.fontSize.px]="32"
+      class="material-symbols-outlined">arrow_circle_down</span>
+    </header>
+    <strong> {{unPaid  | currency: 'BRL': 'symbol'}}</strong>
+  </div>
+
+  <div class="cards-container-card">
+    <header class="cards-container-card-header">
+      <span>Total</span>
+      <span
+      [style.color]="'#FFFFFF'"
+      [style.fontSize.px]="32"
+      class="material-symbols-outlined">paid</span>
+    </header>
+    <strong> {{total  | currency: 'BRL': 'symbol' }}</strong>
+  </div>
+
+</div>
