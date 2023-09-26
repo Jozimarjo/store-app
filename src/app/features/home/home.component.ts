@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
-import { Item, TypePaidOut, TypeSold } from '../interfaces/item';
+import { Item, TypePaidOut } from '../interfaces/item';
 
 @Component({
   selector: 'app-home',
