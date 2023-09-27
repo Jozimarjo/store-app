@@ -18,12 +18,17 @@ export class ProductComponent implements OnInit {
       sold:[false, Validators.required],
       url:['', Validators.required]
     })
+
+
+}
+
+  initialize(){
     const data:Item[] = [
       {
         name: 'Microondas Penesonic',
         date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
-        price:'340.00',
+        price: 340.00,
         type: TypeSold.A_VISTA,
         sold: true,
         customer:'Ecthon'
@@ -32,7 +37,7 @@ export class ProductComponent implements OnInit {
         name: 'Fogão Eletrolux',
         date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
-        price:'1400.00',
+        price: 1400.00,
         type: TypeSold.A_VISTA,
         sold: true,
         customer: 'Clecia'
@@ -41,34 +46,33 @@ export class ProductComponent implements OnInit {
         name: 'Air fryer philips',
         date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
-        price:'250.00',
+        price: 250.00,
         type: TypeSold.A_VISTA,
         sold: true,
         customer: 'Deire'
       },
       {
         name: 'Geladeira Samsung',
-        price: '2700.00',
+        price: 2700.00,
         sold: false,
       },
       {
         name: 'Panela de Arroz Mondial',
-        price: '2700.00',
+        price: 2700.00,
         sold: false,
       },
       {
         name: 'Maquina De Lavar Consul 11L',
-        price: '1300.00',
+        price: 1300.00,
         sold: true,
         date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
         type: TypeSold.A_VISTA,
         customer: 'Mikaelly'
       },
-
       {
         name: 'Ferro black decker',
-        price: '70.00',
+        price: 70.00,
         sold: true,
         date: '2023-09-25',
         paidOut: TypePaidOut.NAO_PAGO,
@@ -77,14 +81,11 @@ export class ProductComponent implements OnInit {
       },
 
   ]
-  // data.forEach(v=>{
-  //   this.save(v)
+    data.forEach(v=>{
+      this.save(v)
 
-  // })
-
-
-}
-
+    })
+  }
   save(value?: Item){
     // const data:Item= this.form.value;
     if(value  )
