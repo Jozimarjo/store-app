@@ -1,7 +1,7 @@
 export interface Item{
   key?:string;
   name: string;
-  price: string;
+  price: number;
   sold: boolean;
 
   paidOut?: TypePaidOut;

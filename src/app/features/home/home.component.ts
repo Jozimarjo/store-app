@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   totalPaid!: number;
   unPaid!: number;
   total!: number;
+  totalItens:number =0;
 constructor(private homeService: HomeService, private app: AppService){}
   ngOnInit(): void {
     this.tamanhoDaTela()
@@ -37,20 +38,35 @@ constructor(private homeService: HomeService, private app: AppService){}
       this.totalPaid = this.itemList
       .filter(v=>v.paidOut === TypePaidOut.PAGO)
       .reduce((acc, cur: Item) => {
-        return acc + parseFloat(cur.price);
+        return acc + cur.price;
       }, 0);
 
       this.unPaid = this.itemList
       .filter(v=>v.paidOut === TypePaidOut.NAO_PAGO)
       .reduce((acc, cur: Item) => {
-        return acc + parseFloat(cur.price);
+        return acc + cur.price;
       }, 0);
+
+      let parcialPaidOut: number = this.itemList
+      .filter(v=>v.paidOut === TypePaidOut.PARCIAL)
+      .reduce((acc, cur: Item) => {
+        return acc + (cur.valuePaid || 0);
+      }, 0);
+      this.totalPaid = this.totalPaid+parcialPaidOut;
 
       this.total = this.itemList
       .filter(v=>v.paidOut === TypePaidOut.NAO_PAGO || v.paidOut === TypePaidOut.PAGO)
       .reduce((acc, cur: Item) => {
-        return acc + parseFloat(cur.price);
+        return acc + cur.price;
       }, 0);
+
+
+      this.totalItens = this.oldList
+      .reduce((acc, cur: Item) => {
+        return acc + cur.price;
+      }, 0);
+
+      this.total = this.total + parcialPaidOut;
     })
 
   }

@@ -10,4 +10,5 @@ export class CardComponent {
   @Input() totalPaid!: number
   @Input() unPaid!: number
   @Input() total!: number
+  @Input() totalItens!: number;
 }

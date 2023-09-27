@@ -49,7 +49,6 @@ export class HeaderComponent implements OnInit {
       this.meuModal.nativeElement
     );
     if (modalInstance) {
-      console.log('entrou')
       modalInstance.show();
       modalInstance.hide();
       setTimeout(()=>{

@@ -48,7 +48,7 @@ export class TableConfig {
       const result =
       v.customer?.toLowerCase().includes(value) ||
       v.name.toLowerCase().includes(value) ||
-      v.price.toLowerCase().includes(value) ||
+      v.price === +value ||
       v.typeValue?.toLowerCase().includes(value) ||
       v.date === normalText;
 

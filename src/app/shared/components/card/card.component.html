@@ -24,7 +24,7 @@
 
   <div class="cards-container-card">
     <header class="cards-container-card-header">
-      <span>Total</span>
+      <span>Total de vendas</span>
       <span
       [style.color]="'#FFFFFF'"
       [style.fontSize.px]="32"
@@ -33,4 +33,14 @@
     <strong> {{total  | currency: 'BRL': 'symbol' }}</strong>
   </div>
 
+  <div class="cards-container-card">
+    <header class="cards-container-card-header">
+      <span>Total de Produtos</span>
+      <span
+      [style.color]="'#FFFFFF'"
+      [style.fontSize.px]="32"
+      class="material-symbols-outlined">paid</span>
+    </header>
+    <strong> {{totalItens  | currency: 'BRL': 'symbol' }}</strong>
+  </div>
 </div>
