@@ -9,6 +9,7 @@ import { TableMobileComponent } from './components/table-mobile/table-mobile.com
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
+import { TagsFilterComponent } from './components/tags-filter/tags-filter.component';
 registerLocaleData(ptBr);
 
 const components = [
@@ -17,7 +18,8 @@ const components = [
   TableComponent,
   SearchComponent,
   ModalComponent,
-  TableMobileComponent
+  TableMobileComponent,
+  TagsFilterComponent
 ]
 @NgModule({
   declarations: components,

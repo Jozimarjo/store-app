@@ -30,24 +30,4 @@ export class TableComponent extends TableConfig implements OnInit {
     }
   }
 
-  // filterTable(value: string){
-  //   const normalText = value
-  //   value = value.toLocaleLowerCase()
-
-  //   this.itemList = []
-  //   this.itemList = this.oldList.filter(v=>{
-
-  //     const result =
-  //     v.customer?.toLowerCase().includes(value) ||
-  //     v.name.toLowerCase().includes(value) ||
-  //     v.price.toLowerCase().includes(value) ||
-  //     v.typeValue?.toLowerCase().includes(value) ||
-  //     v.date === normalText;
-  //     console.log(v.name, " ",result)
-
-  //     return result;
-  //   })
-  //   console.log(this.itemList)
-
-  // }
 }

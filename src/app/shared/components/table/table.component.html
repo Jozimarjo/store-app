@@ -1,4 +1,10 @@
 <div class="table-container">
+  <div class="filters-container">
+    <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='sold'" key="sold" name="Vendidos"></app-tags-filter>
+    <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='notSold'" key="notSold" name="Não vendidos"></app-tags-filter>
+    <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='paidOut'" key="paidOut" name="Pagos"></app-tags-filter>
+    <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='notPaidOut'" key="notPaidOut" name="Não Pagos"></app-tags-filter>
+  </div>
   <app-search (searchText)="filterTable($event)"></app-search>
   <table>
     <tbody>

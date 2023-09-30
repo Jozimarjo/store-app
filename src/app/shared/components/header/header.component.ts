@@ -43,8 +43,6 @@ export class HeaderComponent implements OnInit {
     this.fechar()
   }
   fechar(){
-    console.log(this.meuModal)
-
     const modalInstance = new window.bootstrap.Modal(
       this.meuModal.nativeElement
     );

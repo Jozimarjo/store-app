@@ -85,6 +85,19 @@ export class ModalComponent implements OnInit,OnDestroy {
   }
   save(){
     if(this.form.valid){
+      if(!this.form.value.sold){
+        this.form.reset({
+          name: this.form.controls['name'].value ,
+          price: this.form.controls['price'].value,
+          sold: this.form.controls['sold'].value,
+          valuePaid: '',
+          paidOut: '',
+          type:'',
+          url:'',
+          date:'',
+          customer: ''
+        })
+      }
       if (this.edit) {
         this.editProduct()
       } else {

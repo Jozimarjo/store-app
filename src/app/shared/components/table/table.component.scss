@@ -4,7 +4,14 @@
   margin: 4rem auto 0;
   padding: 0 1.5rem;
 }
-
+.filters-container{
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none; /* Para Webkit (Chrome, Safari) */
+  }
+}
 table{
   width: 100%;
   border-collapse: separate;

@@ -33,21 +33,24 @@ constructor(private homeService: HomeService, private app: AppService){}
 
     this.homeService.getAll().subscribe(values=>{
       this.oldList=[...values];
-      this.itemList=values.filter(v=>v.sold);
+      this.itemList=[...values];
 
       this.totalPaid = this.itemList
+      .filter(v=>v.sold)
       .filter(v=>v.paidOut === TypePaidOut.PAGO)
       .reduce((acc, cur: Item) => {
         return acc + cur.price;
       }, 0);
 
       this.unPaid = this.itemList
+      .filter(v=>v.sold)
       .filter(v=>v.paidOut === TypePaidOut.NAO_PAGO)
       .reduce((acc, cur: Item) => {
         return acc + cur.price;
       }, 0);
 
       let parcialPaidOut: number = this.itemList
+      .filter(v=>v.sold)
       .filter(v=>v.paidOut === TypePaidOut.PARCIAL)
       .reduce((acc, cur: Item) => {
         return acc + (cur.valuePaid || 0);
@@ -55,6 +58,7 @@ constructor(private homeService: HomeService, private app: AppService){}
       this.totalPaid = this.totalPaid+parcialPaidOut;
 
       this.total = this.itemList
+      .filter(v=>v.sold)
       .filter(v=>v.paidOut === TypePaidOut.NAO_PAGO || v.paidOut === TypePaidOut.PAGO)
       .reduce((acc, cur: Item) => {
         return acc + cur.price;
@@ -65,11 +69,11 @@ constructor(private homeService: HomeService, private app: AppService){}
       .reduce((acc, cur: Item) => {
         return acc + cur.price;
       }, 0);
-
       this.total = this.total + parcialPaidOut;
     })
 
   }
+
   @HostListener('window:resize', ['$event'])
   tamanhoDaTela() {
     const largura = window.innerWidth;

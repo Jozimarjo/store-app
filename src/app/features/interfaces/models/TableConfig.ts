@@ -13,10 +13,20 @@ export class TableConfig {
     YELLOW: TypePaidOut.PARCIAL,
     RED: TypePaidOut.NAO_PAGO
   }
+  readonly tags = {
+    notSold:{ key: 'notSold', field:'sold' ,value:false},
+    sold:{ key: 'sold', field:'sold' ,value:true},
+    paidOut:{ key: 'paidOut', field:'paidOut' ,value: TypePaidOut.PAGO},
+    notPaidOut:{ key: 'notPaidOut', field:'paidOut' ,value: TypePaidOut.NAO_PAGO},
+  }
 
   _itens: Item[]=[];
   itemList: ItemWithStringType[] = []
   oldList: ItemWithStringType[] = []
+  selected: string = '';
+  searchText = ''
+  filtersTagValues = {}
+
   constructor(private modalService: ModalService){}
   @Input()
   set itens(value: Item[]){
@@ -30,6 +40,9 @@ export class TableConfig {
         return value;
       })
       this.oldList = [...this.itemList]
+      if(this.filterTagActive() || this.searchText){
+        this.filterTable(this.searchText)
+      }
     }
   }
 
@@ -40,23 +53,53 @@ export class TableConfig {
 
   filterTable(value: string){
     const normalText = value
+    this.searchText=value;
     value = value.toLocaleLowerCase()
 
-    this.itemList = []
-    this.itemList = this.oldList.filter(v=>{
+    this.itemList =[];
+    let iteratorList = [...this.oldList]
+      if(Object.keys(this.filtersTagValues).length>0){
+        const keyValue: string =Object.keys(this.filtersTagValues)[0]
+        const field: string =this.tags[keyValue as keyof typeof this.tags].field
+        const filterValue =this.tags[keyValue as keyof typeof this.tags].value
+        iteratorList = iteratorList.filter(v=>{
+          return v[field as keyof ItemWithStringType] === filterValue
+        })
+        this.itemList = [...iteratorList]
+      }else{
+        this.itemList = [...this.oldList]
+      }
 
-      const result =
-      v.customer?.toLowerCase().includes(value) ||
-      v.name.toLowerCase().includes(value) ||
-      v.price === +value ||
-      v.typeValue?.toLowerCase().includes(value) ||
-      v.date === normalText;
+      this.itemList = this.itemList.filter(v=> {
+        const result =
+          v.customer?.toLowerCase().includes(value) ||
+          v.name.toLowerCase().includes(value) ||
+          v.price === +value ||
+          v.typeValue?.toLowerCase().includes(value) ||
+          v.date === normalText;
 
       return result;
     })
+  }
+
+  filterTag(event:{[key:string]:boolean}){
+    if(!Object.values(event)[0]){
+      this.filtersTagValues = {};
+      this.selected = ''
+      this.filterTable(this.searchText)
+      return
+    }
+    this.filtersTagValues = event;
+    this.selected = Object.keys(event)[0]
+    this.filterTable(this.searchText)
 
   }
+
   editItem(item: Item){
     this.modalService.next(item)
+  }
+
+  filterTagActive(){
+    return Object.values(this.filtersTagValues).filter(v=>v)[0]
   }
 }

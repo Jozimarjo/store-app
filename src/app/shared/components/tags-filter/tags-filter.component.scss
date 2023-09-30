@@ -1,0 +1,12 @@
+.rounded-pill{
+  height: 2rem;
+  width: 6rem;
+}
+.badge {
+  cursor: pointer;
+  background-color: #595959;
+  --bs-badge-padding-y: 0.85em;
+  &.ACTIVE{
+    background-color: #0672FD;
+  }
+}
