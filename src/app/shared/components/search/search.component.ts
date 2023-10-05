@@ -6,8 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  @Input()
-  isMob:boolean = false
+  @Input() isMob:boolean = false
+  @Input() dataCount: number = 0;
+  @Input() dataCountFilter: number = 0;
 
   serchValue: string=''
   @Output() searchText = new EventEmitter<string>();

@@ -17,9 +17,21 @@
       <span
       [style.color]="'#F75A68'"
       [style.fontSize.px]="32"
-      class="material-symbols-outlined">arrow_circle_down</span>
+      class="material-symbols-outlined"> arrow_circle_down</span>
     </header>
     <strong> {{unPaid  | currency: 'BRL': 'symbol'}}</strong>
+  </div>
+
+  <div class="cards-container-card">
+
+    <header class="cards-container-card-header">
+      <span>Parcial</span>
+      <span
+      [style.color]="'#e0f75a'"
+      [style.fontSize.px]="32"
+      class="material-symbols-outlined"> arrow_circle_up</span>
+    </header>
+    <strong> {{parcialPaidOut  | currency: 'BRL': 'symbol'}}</strong>
   </div>
 
   <div class="cards-container-card">

@@ -19,7 +19,8 @@ export class TableConfig {
     paidOut:{ key: 'paidOut', field:'paidOut' ,value: TypePaidOut.PAGO},
     notPaidOut:{ key: 'notPaidOut', field:'paidOut' ,value: TypePaidOut.NAO_PAGO},
   }
-
+  count = 0;
+  countFilter = 0;
   _itens: Item[]=[];
   itemList: ItemWithStringType[] = []
   oldList: ItemWithStringType[] = []
@@ -40,6 +41,7 @@ export class TableConfig {
         return value;
       })
       this.oldList = [...this.itemList]
+      this.getCountItens()
       if(this.filterTagActive() || this.searchText){
         this.filterTable(this.searchText)
       }
@@ -80,6 +82,7 @@ export class TableConfig {
 
       return result;
     })
+    this.getCountItens()
   }
 
   filterTag(event:{[key:string]:boolean}){
@@ -101,5 +104,10 @@ export class TableConfig {
 
   filterTagActive(){
     return Object.values(this.filtersTagValues).filter(v=>v)[0]
+  }
+
+  getCountItens(){
+    this.countFilter = this.itemList.length || 0
+    this.count= this.oldList.length || 0;
   }
 }

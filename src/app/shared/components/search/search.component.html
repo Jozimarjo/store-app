@@ -1,11 +1,18 @@
 <form class="table-container-search">
+  <div class="table-container-search-text-field " >
+    <div class="todo-table-container-tag">
+      <span> Total </span>
+      <div class="todo-table-container-header-tag">
+          <p>{{dataCountFilter}} de {{dataCount}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex table-container-search-input-container">
     <input type="text" name="searchName" [(ngModel)]="serchValue">
-  <!-- <div style="background-color: blue;flex:1;">
-    teste2
-  </div> -->
-  <button type="submit" (click)="filterText(serchValue)" class="btn btn-outline-success d-flex align-items-center">
-    <span class="material-symbols-outlined"> search </span>
-    <span *ngIf="!isMob">Buscar</span>
-  </button>
+    <button type="submit" (click)="filterText(serchValue)" class="btn btn-outline-success d-flex align-items-center">
+      <span class="material-symbols-outlined"> search </span>
+      <span *ngIf="!isMob">Buscar</span>
+    </button>
+  </div>
 
 </form>

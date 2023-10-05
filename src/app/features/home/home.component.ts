@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   totalPaid!: number;
   unPaid!: number;
   total!: number;
-  totalItens:number =0;
+  totalItens:number = 0;
+  parcialPaidOut: number = 0;
 constructor(private homeService: HomeService, private app: AppService){}
   ngOnInit(): void {
     this.tamanhoDaTela()
@@ -70,6 +71,12 @@ constructor(private homeService: HomeService, private app: AppService){}
         return acc + cur.price;
       }, 0);
       this.total = this.total + parcialPaidOut;
+
+      this.parcialPaidOut = this.itemList
+        .filter( v => v.valuePaid && v.valuePaid >0 )
+        .reduce((acc, cur: Item) => {
+          return acc +(cur?.valuePaid ?? 0)
+        }, 0);
     })
 
   }

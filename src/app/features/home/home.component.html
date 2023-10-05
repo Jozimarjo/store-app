@@ -1,5 +1,11 @@
 <app-header [itens]="oldList"></app-header>
-<app-card [totalPaid]="totalPaid" [unPaid]="unPaid" [total]="total" [totalItens]="totalItens"></app-card>
+<app-card
+  [totalPaid]="totalPaid"
+  [unPaid]="unPaid"
+  [total]="total"
+  [totalItens]="totalItens"
+  [parcialPaidOut]="parcialPaidOut">
+</app-card>
 <app-table *ngIf="!isMob" [itens]="itemList"></app-table>
 <app-table-mobile *ngIf="isMob" [itens]="itemList"></app-table-mobile>
 

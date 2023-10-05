@@ -5,7 +5,7 @@
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='paidOut'" key="paidOut" name="Pagos"></app-tags-filter>
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='notPaidOut'" key="notPaidOut" name="Não Pagos"></app-tags-filter>
   </div>
-  <app-search (searchText)="filterTable($event)"></app-search>
+  <app-search (searchText)="filterTable($event)" [dataCount]="count" [dataCountFilter]="countFilter"></app-search>
   <table>
     <tbody>
       <tr *ngFor="let item of itemList" (click)="editItem(item)">

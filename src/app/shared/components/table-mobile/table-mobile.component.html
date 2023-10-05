@@ -5,7 +5,9 @@
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='paidOut'" key="paidOut" name="Pagos"></app-tags-filter>
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='notPaidOut'" key="notPaidOut" name="Não Pagos"></app-tags-filter>
   </div>
-  <app-search [isMob]="true" (searchText)="filterTable($event)" ></app-search>
+
+  <app-search [isMob]="true" (searchText)="filterTable($event)" [dataCount]="count" [dataCountFilter]="countFilter" ></app-search>
+
   <div class="table-card mb-2" *ngFor="let item of itemList">
     <div class="table-card-header" (click)="editItem(item)">
       <span class="table-card-content-title"> {{item.name}} </span>

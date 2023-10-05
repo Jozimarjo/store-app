@@ -55,17 +55,18 @@ export class ModalComponent implements OnInit,OnDestroy {
       name:[data?.name || '',Validators.required],
       price:[data?.price|| '',Validators.required],
       sold:[!data?.sold?false:true,Validators. required],
-      valuePaid:[data?.valuePaid||''],
+      valuePaid:[data?.valuePaid!=undefined?+data?.valuePaid:''],
       paidOut:[data?.paidOut||TypePaidOut.NAO_PAGO],
       type:[data?.type ||TypeSold.A_VISTA],
       url:[''],
       date:[data?.date||''],
       customer:[data?.customer||'']
     })
+    this.selected = data?.type?? TypeSold.A_VISTA;
   }
 
   select(event:string){
-    this.selected=event;
+    this.selected = event;
     this.form.controls['type'].setValue(event)
   }
 

@@ -1,7 +1,9 @@
 .table-container-search{
   display: flex;
+  flex-direction: column;
   padding: 16px 0;
   gap: 0.75rem;
+  color: #c4c4cc80;
   input{
     width: calc(100% - 1rem);
     background-color: #121214;
@@ -10,7 +12,30 @@
     color: #7C7C8A ;
     padding: 1rem;
   }
-  button{
-    // flex: 1;
-  }
+
+}
+.table-container-search-text-field {
+  display: flex;
+  justify-content: flex-end;
+}
+.table-container-search-input-container{
+  gap: 0.75rem;
+}
+.todo-table-container-tag{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.todo-table-container-header-tag{
+  display: flex;
+  padding: 2px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background-color: #333333;
+  gap: 10px;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+  color: #a8a8a8;
 }
