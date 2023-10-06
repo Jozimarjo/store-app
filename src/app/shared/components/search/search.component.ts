@@ -9,6 +9,8 @@ export class SearchComponent {
   @Input() isMob:boolean = false
   @Input() dataCount: number = 0;
   @Input() dataCountFilter: number = 0;
+  @Input() selectedCount: number = 0;
+
 
   serchValue: string=''
   @Output() searchText = new EventEmitter<string>();

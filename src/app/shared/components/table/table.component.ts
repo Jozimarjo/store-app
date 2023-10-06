@@ -15,10 +15,6 @@ export class TableComponent extends TableConfig implements OnInit {
   }
 
 
-  // getTypeValue(value: Item, color: string): boolean{
-  //   return this.colors[color as keyof typeof this.colors] === value.paidOut;
-  // }
-
   @HostListener('window:resize', ['$event'])
   tamanhoDaTela() {
     const largura = window.innerWidth;
@@ -30,4 +26,10 @@ export class TableComponent extends TableConfig implements OnInit {
     }
   }
 
+  getSelect(item: ItemWithStringType){
+    if(item.key)
+      return this.selectedRow[item.key]
+
+    return false
+  }
 }

@@ -25,9 +25,10 @@ export class TableConfig {
   itemList: ItemWithStringType[] = []
   oldList: ItemWithStringType[] = []
   selected: string = '';
-  searchText = ''
+  selectedCount = 0;
+  searchText = '';
   filtersTagValues = {}
-
+  selectedRow: any = {}
   constructor(private modalService: ModalService){}
   @Input()
   set itens(value: Item[]){
@@ -109,5 +110,12 @@ export class TableConfig {
   getCountItens(){
     this.countFilter = this.itemList.length || 0
     this.count= this.oldList.length || 0;
+  }
+
+  selectItem(item: Item){
+    if(item.key){
+      this.selectedRow[item.key]=!this.selectedRow[item.key]
+      this.selectedCount = Object.values(this.selectedRow).filter(v=>v).length
+    }
   }
 }
