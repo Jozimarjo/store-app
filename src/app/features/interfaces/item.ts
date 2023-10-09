@@ -23,5 +23,5 @@ export enum TypePaidOut{
 
 export const typeValues ={
   A_VISTA: 'A Vista',
-  PARCELADO: 'Parcelado',
+  PARCELADO: 'Crédito',
 }

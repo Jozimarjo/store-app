@@ -20,9 +20,9 @@ export class TableComponent extends TableConfig implements OnInit {
     const largura = window.innerWidth;
     const altura = window.innerHeight;
     if(largura<769){
-      this.isMob=true
+      this.isMob = true
     }else{
-      this.isMob=false
+      this.isMob = false
     }
   }
 

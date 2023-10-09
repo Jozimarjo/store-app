@@ -21,7 +21,18 @@
     </header>
     <strong> {{unPaid  | currency: 'BRL': 'symbol'}}</strong>
   </div>
+  <div class="cards-container-card">
 
+    <header class="cards-container-card-header">
+      <span>Crédito</span>
+      <span
+      [style.color]="'#00b37e'"
+      [style.fontSize.px]="32"
+      class="material-symbols-outlined"> credit_card</span>
+    </header>
+
+    <strong> {{totalCreditPaid  | currency: 'BRL': 'symbol'}}</strong>
+  </div>
   <div class="cards-container-card">
 
     <header class="cards-container-card-header">

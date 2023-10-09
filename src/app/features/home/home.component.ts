@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
-import { Item, TypePaidOut } from '../interfaces/item';
+import { Item, TypePaidOut, TypeSold } from '../interfaces/item';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   total!: number;
   totalItens:number = 0;
   parcialPaidOut: number = 0;
+  totalCreditPaid: number = 0;
 constructor(private homeService: HomeService, private app: AppService){}
   ngOnInit(): void {
     this.tamanhoDaTela()
@@ -37,7 +38,14 @@ constructor(private homeService: HomeService, private app: AppService){}
       this.itemList=[...values];
 
       this.totalPaid = this.itemList
-      .filter(v=>v.sold)
+      .filter(v=>v.sold && v.type === TypeSold.A_VISTA)
+      .filter(v=>v.paidOut === TypePaidOut.PAGO)
+      .reduce((acc, cur: Item) => {
+        return acc + cur.price;
+      }, 0);
+
+      this.totalCreditPaid = this.itemList
+      .filter(v=>v.sold && v.type === TypeSold.PARCELADO)
       .filter(v=>v.paidOut === TypePaidOut.PAGO)
       .reduce((acc, cur: Item) => {
         return acc + cur.price;

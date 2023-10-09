@@ -12,5 +12,7 @@ export class CardComponent {
   @Input() total: number = 0 ;
   @Input() totalItens: number = 0;
   @Input() parcialPaidOut: number = 0;
+  @Input() totalCreditPaid: number = 0;
+
 
 }
