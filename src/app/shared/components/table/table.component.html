@@ -4,8 +4,9 @@
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='notSold'" key="notSold" name="Não vendidos"></app-tags-filter>
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='paidOut'" key="paidOut" name="Pagos"></app-tags-filter>
     <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='notPaidOut'" key="notPaidOut" name="Não Pagos"></app-tags-filter>
+    <app-tags-filter (filterTag)="filterTag($event)" [active]="selected==='parcial'" key="parcial" name="Parcial"></app-tags-filter>
   </div>
-  <app-search (searchText)="filterTable($event)" [dataCount]="count" [dataCountFilter]="countFilter" [selectedCount]="selectedCount" ></app-search>
+  <app-search (searchText)="filterTable($event)" [dataCount]="count" [dataCountFilter]="countFilter" [selectedCount]="selectedCount" [selectedResult]="selectResult" ></app-search>
   <table>
     <tbody>
       <tr [class.selected]="getSelect(item)" *ngFor="let item of itemList">

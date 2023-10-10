@@ -18,6 +18,7 @@ export class TableConfig {
     sold:{ key: 'sold', field:'sold' ,value:true},
     paidOut:{ key: 'paidOut', field:'paidOut' ,value: TypePaidOut.PAGO},
     notPaidOut:{ key: 'notPaidOut', field:'paidOut' ,value: TypePaidOut.NAO_PAGO},
+    parcial: { key: 'parcial', field:'paidOut' ,value: TypePaidOut.PARCIAL},
   }
   count = 0;
   countFilter = 0;
@@ -29,6 +30,9 @@ export class TableConfig {
   searchText = '';
   filtersTagValues = {}
   selectedRow: any = {}
+  selectedRowCount:{[key:string]:{ value:boolean, price: number}} = {}
+  selectResult: number = 0;
+
   constructor(private modalService: ModalService){}
   @Input()
   set itens(value: Item[]){
@@ -58,13 +62,19 @@ export class TableConfig {
     const normalText = value
     this.searchText=value;
     value = value.toLocaleLowerCase()
-
     this.itemList =[];
     let iteratorList = [...this.oldList]
+    console.log(Object.keys(this.filtersTagValues))
+
       if(Object.keys(this.filtersTagValues).length>0){
         const keyValue: string =Object.keys(this.filtersTagValues)[0]
+        console.log(keyValue,this.tags)
+
+        console.log(this.tags[keyValue as keyof typeof this.tags])
         const field: string =this.tags[keyValue as keyof typeof this.tags].field
+
         const filterValue =this.tags[keyValue as keyof typeof this.tags].value
+
         iteratorList = iteratorList.filter(v=>{
           return v[field as keyof ItemWithStringType] === filterValue
         })
@@ -87,6 +97,7 @@ export class TableConfig {
   }
 
   filterTag(event:{[key:string]:boolean}){
+
     if(!Object.values(event)[0]){
       this.filtersTagValues = {};
       this.selected = ''
@@ -95,6 +106,7 @@ export class TableConfig {
     }
     this.filtersTagValues = event;
     this.selected = Object.keys(event)[0]
+    console.log(this.filtersTagValues);
     this.filterTable(this.searchText)
 
   }
@@ -115,7 +127,17 @@ export class TableConfig {
   selectItem(item: Item){
     if(item.key){
       this.selectedRow[item.key]=!this.selectedRow[item.key]
+      console.log(this.selectedRowCount[item.key]?.value)
+      this.selectedRowCount[item.key] = {
+        value: !this.selectedRowCount[item.key]?.value||false,
+        price: item.price
+      }
       this.selectedCount = Object.values(this.selectedRow).filter(v=>v).length
+      this.selectResult = Object.values(this.selectedRowCount)
+        .filter((v:any)=>v.value)
+        .reduce((acc: any, cur: any)=>{
+          return acc + cur.price
+        },0)
     }
   }
 }

@@ -10,7 +10,7 @@ export class SearchComponent {
   @Input() dataCount: number = 0;
   @Input() dataCountFilter: number = 0;
   @Input() selectedCount: number = 0;
-
+  @Input() selectedResult: number =0;
 
   serchValue: string=''
   @Output() searchText = new EventEmitter<string>();

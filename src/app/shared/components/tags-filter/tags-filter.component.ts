@@ -22,6 +22,7 @@ export class TagsFilterComponent {
     const result = {
       [`${this.key}`]:this.state
     }
+    console.log(result)
     return this.filterTag.emit(result)
   }
 }
