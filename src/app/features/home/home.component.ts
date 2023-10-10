@@ -34,6 +34,10 @@ constructor(private homeService: HomeService, private app: AppService){}
   getAll(){
 
     this.homeService.getAll().subscribe(values=>{
+      // values = values.sort((a, b)=>{
+      //  return +(a.name > b.name) || +(a.name === b.name) - 1;
+      // })
+      // console.log(values)
       this.oldList=[...values];
       this.itemList=[...values];
 
